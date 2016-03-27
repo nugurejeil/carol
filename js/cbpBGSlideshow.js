@@ -48,7 +48,7 @@ var cbpBGSlideshow = (function() {
 			// initialize/bind the events
 			initEvents();
 			// start the slideshow
-			startSlideshow();
+//			startSlideshow();
 
 		} );
 		
@@ -61,11 +61,11 @@ var cbpBGSlideshow = (function() {
 			var $control = $( this );
 			if( $control.hasClass( 'play' ) ) {
 				$control.removeClass( 'play' ).addClass( 'pause' );
-				startSlideshow();
+//				startSlideshow();
 			}
 			else {
 				$control.removeClass( 'pause' ).addClass( 'play' );
-				stopSlideshow();
+//				stopSlideshow();
 			}
 
 		} );
@@ -73,13 +73,13 @@ var cbpBGSlideshow = (function() {
 		navigation.$navPrev.on( 'click', function() { 
 			navigate( 'prev' ); 
 			if( isSlideshowActive ) { 
-				startSlideshow(); 
+//				startSlideshow(); 
 			} 
 		} );
 		navigation.$navNext.on( 'click', function() { 
 			navigate( 'next' ); 
 			if( isSlideshowActive ) { 
-				startSlideshow(); 
+//				startSlideshow(); 
 			}
 		} );
 
@@ -105,16 +105,16 @@ var cbpBGSlideshow = (function() {
 
 	}
 
-	function startSlideshow() {
-
-		isSlideshowActive = true;
-		clearTimeout( slideshowtime );
-		slideshowtime = setTimeout( function() {
-			navigate( 'next' );
-			startSlideshow();
-		}, interval );
-
-	}
+//	function startSlideshow() {
+//
+//		isSlideshowActive = true;
+//		clearTimeout( slideshowtime );
+//		slideshowtime = setTimeout( function() {
+//			navigate( 'next' );
+//			startSlideshow();
+//		}, interval );
+//
+//	}
 
 	function stopSlideshow() {
 		isSlideshowActive = false;

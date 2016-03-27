@@ -86,10 +86,10 @@ a:link, a:visited, a:active{
 /*global_header*/
 #global_header{
     background:#fdedd5;
-    position: fixed;
+    position: relative;
     top:0;
     width:100%;
-    z-index: 3;
+    z-index: 99;
 }
 .global_header_gnb{
     width:600px;
@@ -106,18 +106,21 @@ a:link, a:visited, a:active{
     position:fixed;
     left:0;
     bottom:0;
-    z-index:3;
+    z-index:99;
     width:100%;
     text-align:center;
     background:black;
-   
+}
+#global_footer p{
+    padding:3px;
+    font-size: 0.6em;
 }
 
 /*index*/
 #index_main #wrapper{
     width:600px;
     margin:0 auto;
-    padding-top: 200px;
+    padding-top: 150px;
     text-align:center;
 }
 
@@ -132,6 +135,7 @@ a:link, a:visited, a:active{
 }
 .index_main_critic{
     margin-top:20px;
+    margin-bottom:50px;
 }
 .index_main_critic q{
     display:block;
@@ -214,13 +218,17 @@ a:link, a:visited, a:active{
 	top: 2px;
 }
 
+/*
  .cast_main_controls span.play:before {
 	content: "\e002";
 }
+*/
 
+/*
 .cast_main_controls span.pause:before {
 	content: "\e003";
 }
+*/
 
 .cast_main_controls span.next:before {
 	content: "\e000";
