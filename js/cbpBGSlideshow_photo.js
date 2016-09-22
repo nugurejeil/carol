@@ -10,13 +10,11 @@
  */
 var cbpBGSlideshow = (function() {
 
-	var $slideshow = $( '#cast_main_slideshow' ),
-        $cast_detail =$('#cast_detail'),
+	var $slideshow = $( '#photo_main_slideshow' ),
 		$items = $slideshow.children( 'li' ),
-        $items_text = $cast_detail.children('li'),
 		itemsCount = $items.length,
 //        textCount = $items_text.length,
-		$controls = $( '#cast_main_controls' ),
+		$controls = $( '#photo_main_controls' ),
 		navigation = {
 			$navPrev : $controls.find( 'span.prev' ),
 			$navNext : $controls.find( 'span.next' ),
@@ -48,8 +46,6 @@ var cbpBGSlideshow = (function() {
 			}
 			// show first item
 			$items.eq( current ).css( 'opacity', 1 );
-            $items_text.eq(current).css('opacity', 1);
-            $items_text.eq(current).css('margin-left', 250);
 			// initialize/bind the events
 			initEvents();
 			// start the slideshow
@@ -77,15 +73,15 @@ var cbpBGSlideshow = (function() {
 
 		navigation.$navPrev.on( 'click', function() { 
 			navigate( 'prev' ); 
-//			if( isSlideshowActive ) { 
-//				startSlideshow(); 
-//			} 
+			if( isSlideshowActive ) { 
+				startSlideshow(); 
+			} 
 		} );
 		navigation.$navNext.on( 'click', function() { 
 			navigate( 'next' ); 
-//			if( isSlideshowActive ) { 
-//				startSlideshow(); 
-//			}
+			if( isSlideshowActive ) { 
+				startSlideshow(); 
+			}
 		} );
 
 	}
@@ -94,7 +90,6 @@ var cbpBGSlideshow = (function() {
 
 		// current item
 		var $oldItem = $items.eq( current );
-		var $oldText = $items_text.eq( current );
 		if( direction === 'next' ) {
 			current = current < itemsCount - 1 ? ++current : 0;
 		}
@@ -103,33 +98,22 @@ var cbpBGSlideshow = (function() {
 		}
 
 		// new item
-        console.log(current);
 		var $newItem = $items.eq( current );
-        var $newText = $items_text.eq( current );
 		// show / hide items
 		$oldItem.css('opacity', 0);
 		$newItem.css('opacity', 1);
-        $oldText.css('opacity', 0);
-        $oldText.css('display', 'none');
-        $newText.css('opacity', 1);
-        $newText.css('display', 'list-item');
-        if(current == 5){
-            $newText.css('margin-right', 350);
-        }else{
-            $newText.css('margin-left', 250);
-        }
 	}
 
-//	function startSlideshow() {
-//
-//		isSlideshowActive = true;
-//		clearTimeout( slideshowtime );
-//		slideshowtime = setTimeout( function() {
-//			navigate( 'next' );
-//			startSlideshow();
-//		}, interval );
-//
-//	}
+	function startSlideshow() {
+
+		isSlideshowActive = true;
+		clearTimeout( slideshowtime );
+		slideshowtime = setTimeout( function() {
+			navigate( 'next' );
+			startSlideshow();
+		}, interval );
+
+	}
 
 	function stopSlideshow() {
 		isSlideshowActive = false;
